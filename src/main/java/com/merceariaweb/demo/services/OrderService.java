@@ -6,23 +6,23 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.merceariaweb.demo.entities.User;
-import com.merceariaweb.demo.repositories.UserRepository;
+import com.merceariaweb.demo.entities.Order;
+import com.merceariaweb.demo.repositories.OrderRepository;
 
 @Service
-public class UserService {
+public class OrderService {
 	
 	@Autowired
-	private UserRepository repository;
+	private OrderRepository repository;
 	
-	public List<User> findAll()
+	public List<Order> findAll()
 	{
 		return repository.findAll();
 	}
 	
-	public User findById(Long id)
+	public Order findById(Long id)
 	{
-		Optional<User> obj = repository.findById(id);
+		Optional<Order> obj = repository.findById(id);
 		return obj.get();
 	}
 	
