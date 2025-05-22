@@ -1,4 +1,4 @@
-package com.merceariaweb.demo.entities;
+package com.merceariaweb.demo.model;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.merceariaweb.demo.entities.enums.OrderStatus;
+import com.merceariaweb.demo.model.enums.OrderStatus;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

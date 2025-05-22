@@ -1,9 +1,9 @@
-package com.merceariaweb.demo.entities.pk;
+package com.merceariaweb.demo.model.pk;
 
 import java.io.Serializable;
 
-import com.merceariaweb.demo.entities.Order;
-import com.merceariaweb.demo.entities.Product;
+import com.merceariaweb.demo.model.Order;
+import com.merceariaweb.demo.model.Product;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;

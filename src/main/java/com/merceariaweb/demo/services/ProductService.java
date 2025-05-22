@@ -6,8 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.merceariaweb.demo.entities.Product;
+import com.merceariaweb.demo.model.Product;
 import com.merceariaweb.demo.repositories.ProductRepository;
+import com.merceariaweb.demo.services.exception.ResourceNotFoundException;
 
 @Service
 public class ProductService {
@@ -24,7 +25,7 @@ public class ProductService {
 	public Product findById(Long id)
 	{
 		Optional<Product> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException("Category not found with id " + id));
 	}
 	
 

@@ -6,8 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.merceariaweb.demo.entities.Order;
+import com.merceariaweb.demo.model.Order;
 import com.merceariaweb.demo.repositories.OrderRepository;
+import com.merceariaweb.demo.services.exception.ResourceNotFoundException;
 
 @Service
 public class OrderService {
@@ -15,16 +16,12 @@ public class OrderService {
 	@Autowired
 	private OrderRepository repository;
 	
-	public List<Order> findAll()
-	{
+	public List<Order> findAll() {
 		return repository.findAll();
 	}
 	
-	public Order findById(Long id)
-	{
+	public Order findById(Long id) {
 		Optional<Order> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException("Order not found with id " + id));
 	}
-	
-
 }

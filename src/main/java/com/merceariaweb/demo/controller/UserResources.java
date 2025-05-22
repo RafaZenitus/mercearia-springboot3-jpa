@@ -1,4 +1,4 @@
-package com.merceariaweb.demo.resources;
+package com.merceariaweb.demo.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.merceariaweb.demo.entities.User;
+import com.merceariaweb.demo.model.User;
 import com.merceariaweb.demo.services.UserService;
 
 @RestController

@@ -8,13 +8,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.merceariaweb.demo.entities.Category;
-import com.merceariaweb.demo.entities.Order;
-import com.merceariaweb.demo.entities.OrderItem;
-import com.merceariaweb.demo.entities.Payment;
-import com.merceariaweb.demo.entities.Product;
-import com.merceariaweb.demo.entities.User;
-import com.merceariaweb.demo.entities.enums.OrderStatus;
+import com.merceariaweb.demo.model.Category;
+import com.merceariaweb.demo.model.Order;
+import com.merceariaweb.demo.model.OrderItem;
+import com.merceariaweb.demo.model.Payment;
+import com.merceariaweb.demo.model.Product;
+import com.merceariaweb.demo.model.User;
+import com.merceariaweb.demo.model.enums.OrderStatus;
 import com.merceariaweb.demo.repositories.CategoryRepository;
 import com.merceariaweb.demo.repositories.OrderItemRepository;
 import com.merceariaweb.demo.repositories.OrderRepository;
@@ -43,27 +43,29 @@ public class TestConfig implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
-		Category cat1 = new Category(null, "Electronics"); 
-		Category cat2 = new Category(null, "Books"); 
-		Category cat3 = new Category(null, "Computers");
-		
-		Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, ""); 
-		Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, ""); 
-		Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, ""); 
-		Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, ""); 
-		Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, ""); 
+		Category cat1 = new Category(null, "Armas e Armaduras"); 
+		Category cat2 = new Category(null, "Tomos"); 
+		Category cat3 = new Category(null, "Comidas da Comarca");
 		
 		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
-		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 		
-		p1.getCategories().add(cat2);
+		Product p1 = new Product(null, "Espada Andúril", "A espada reforjada de Elendil, brandida por Aragorn.", 1250.0, ""); 
+		Product p2 = new Product(null, "Armadura Élfica", "Proteção leve e resistente dos elfos de Lothlórien.", 1200.0, ""); 
+		Product p3 = new Product(null, "Palantír", "Pedra vidente usada para comunicação e vigilância.", 2190.0, ""); 
+		Product p4 = new Product(null, "O Silmarillion", "Os antigos escritos que narram a criação da Terra Média.", 90.5, ""); 
+		Product p5 = new Product(null, "Pão da Comarca", "Pão caseiro típico dos hobbits, saboroso e rústico.", 10.99, ""); 
+		Product p6 = new Product(null, "Cerveja do Condado", "Bebida típica dos hobbits para celebrar grandes festas.", 15.99, "");
+		
+		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6));
+		
+		p1.getCategories().add(cat1);
 		p2.getCategories().add(cat1);
-		p2.getCategories().add(cat3);
-		p3.getCategories().add(cat3);
-		p4.getCategories().add(cat3);
-		p5.getCategories().add(cat2);
+		p3.getCategories().add(cat2);
+		p4.getCategories().add(cat2);
+		p5.getCategories().add(cat3);
+		p6.getCategories().add(cat3); 
 		
-		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6));
 		
 		
 		User u1 = new User(null, "Feanor", "feanor@gmail.com", "955555555", "123456"); 
@@ -76,10 +78,10 @@ public class TestConfig implements CommandLineRunner{
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
 		
-		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice()); 
-		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice()); 
-		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice()); 
-		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+		OrderItem oi1 = new OrderItem(o1, p1, 1, p1.getPrice()); 
+		OrderItem oi2 = new OrderItem(o1, p5, 3, p5.getPrice()); 
+		OrderItem oi3 = new OrderItem(o2, p3, 1, p3.getPrice()); 
+		OrderItem oi4 = new OrderItem(o3, p6, 4, p6.getPrice());
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);

@@ -1,4 +1,4 @@
-package com.merceariaweb.demo.entities.enums;
+package com.merceariaweb.demo.model.enums;
 
 public enum OrderStatus {
 	

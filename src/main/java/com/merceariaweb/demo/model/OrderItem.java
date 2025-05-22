@@ -1,9 +1,9 @@
-package com.merceariaweb.demo.entities;
+package com.merceariaweb.demo.model;
 
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.merceariaweb.demo.entities.pk.OrderItemPK;
+import com.merceariaweb.demo.model.pk.OrderItemPK;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;

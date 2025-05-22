@@ -8,7 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.merceariaweb.demo.entities.User;
+import com.merceariaweb.demo.model.User;
 import com.merceariaweb.demo.repositories.UserRepository;
 import com.merceariaweb.demo.services.exception.DatabaseException;
 import com.merceariaweb.demo.services.exception.ResourceNotFoundException;

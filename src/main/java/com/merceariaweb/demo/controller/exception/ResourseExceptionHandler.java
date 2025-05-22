@@ -1,4 +1,4 @@
-package com.merceariaweb.demo.resources.exception;
+package com.merceariaweb.demo.controller.exception;
 
 import java.time.Instant;
 

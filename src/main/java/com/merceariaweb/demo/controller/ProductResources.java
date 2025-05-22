@@ -1,4 +1,4 @@
-package com.merceariaweb.demo.resources;
+package com.merceariaweb.demo.controller;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.merceariaweb.demo.entities.Product;
+import com.merceariaweb.demo.model.Product;
 import com.merceariaweb.demo.services.ProductService;
 
 @RestController

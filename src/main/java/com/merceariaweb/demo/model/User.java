@@ -1,4 +1,4 @@
-package com.merceariaweb.demo.entities;
+package com.merceariaweb.demo.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
