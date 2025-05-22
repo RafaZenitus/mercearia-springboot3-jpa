@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.merceariaweb.demo.entities.User;
 import com.merceariaweb.demo.repositories.UserRepository;
+import com.merceariaweb.demo.services.exception.ResourceNotFoundException;
 
 import jakarta.transaction.Transactional;
 
@@ -25,7 +26,8 @@ public class UserService {
 	public User findById(Long id)
 	{
 		Optional<User> obj = repository.findById(id);
-		return obj.get();
+		//return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public User insert(User obj) {
